@@ -48,7 +48,7 @@ function App() {
      
     <Header />
     <ClassList student={ students }/>
-    <StudentCard student={ students }/>
+    
     </>
   )
 }

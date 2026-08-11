@@ -3,7 +3,7 @@
 const Card = ({children}) => {
     return ( 
         <>
-            <div className=''>
+            <div className='flex justify-between border p-5'>
                 {children}
             </div>
         </>
