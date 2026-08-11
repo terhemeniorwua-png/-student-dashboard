@@ -3,7 +3,7 @@
 const Card = ({children}) => {
     return ( 
         <>
-            <div className="border border-dotted p-2">
+            <div className=''>
                 {children}
             </div>
         </>
