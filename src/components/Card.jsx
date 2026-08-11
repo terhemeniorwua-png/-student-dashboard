@@ -1,7 +1,11 @@
-const Card = ( {button}) => {
+
+
+const Card = ({children}) => {
     return ( 
         <>
-          
+            <div className="border border-dotted p-2">
+                {children}
+            </div>
         </>
      );
 }
