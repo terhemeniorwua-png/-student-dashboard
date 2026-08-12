@@ -43,26 +43,26 @@ function App() {
 ];
 
 
-const [inactiveStudent, setInactiveStudent] = useState(students)
+const [displayStudents, setdisplayStudents] = useState(students)
 
     const handleInactive =()=>{
        
         let inactive = students.filter(std => std.active === false)
-       setInactiveStudent(inactive)
+       setdisplayStudents(inactive)
        
     }
 
      const handleActive =()=>{
        
         let activeStudent = students.filter(std => std.active === true)
-       setInactiveStudent(activeStudent)
+       setdisplayStudents(activeStudent)
        
     }
 
 
     const handleAllStudent =()=>{
        
-       setInactiveStudent(students)
+       setdisplayStudents(students)
        
     }
 
@@ -75,7 +75,7 @@ const [inactiveStudent, setInactiveStudent] = useState(students)
             return student
           }
      })
-     setInactiveStudent(studentSearched)
+     setdisplayStudents(studentSearched)
     }
 
 
@@ -87,7 +87,7 @@ const [inactiveStudent, setInactiveStudent] = useState(students)
 
     <FilterButton functionality={(e)=>{handleSearch(e)}}/>
 
-    <StudentList student={ inactiveStudent }/>
+    <StudentList student={ displayStudents }/>
     
     </>
   )
