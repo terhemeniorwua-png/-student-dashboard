@@ -8,7 +8,7 @@ import ClassList from './components/StudentList'
 import StudentCard from './components/StudentCard'
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   const students = [
   {
@@ -46,7 +46,7 @@ function App() {
   return (
     <>
      
-    <Header />
+    <Header statues = {students}/>
     <ClassList student={ students }/>
     
     </>

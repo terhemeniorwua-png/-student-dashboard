@@ -8,30 +8,36 @@ import StudentCard from "./StudentCard";
 const ClassList = (props) => {
 
     const [show, setShow] = useState(false)
+    const [selectedId, setSelectedId] = useState(null)
 
-     const handleClicked = e =>{
-                    let clicked = e.target
+     const handleClicked = id =>{
+                    
+       props.student.map(std =>{
+            id === std.id && setSelectedId(std)
+                    setShow(true)
+                    
+        })
 
-
-                    console.log(clicked)
+                   
                     
                 }
 
-                // const handleClose = e =>{
-                //     let clicked = e.target
+                const handleClose = ()=>{
+                     setShow(false)
                    
-                // }
-if(show){
+                }
+if(!show){
 
     return ( 
         <>
-           {
+           <div className="grid grid-cols-4 px-[5%] pt-20">
+            {
             props.student.map(student =>{
 
                
 
                 return(
-                    <div className="border w-[15%] p-2 space-y-5 mb-5 ml-10" key={student.id}>
+                    <div className="border p-2 space-y-5 mb-5 ml-10" key={student.id}>
                      <div className="flex items-center gap-1 ">
                         <FaUser className="text-blue-500"/>  
                         <p>{student.name}</p>
@@ -43,19 +49,20 @@ if(show){
                          {student.active === true? ' Active' : 'Inactive'}</p>
                     <p>{student.course}</p>
                     
-                    <Button value='View Details' functionality={(e)=>{handleClicked(e)}} id={student.id}/>
+                    <Button value='View Details' functionality={()=>handleClicked(student.id)}/>
                     </div>
 
                 )
             })
-           }
+           } 
+           </div>
         </>
      );
     }
 
 
 else{
-    return(<StudentCard student={ props }/>)
+    return(<StudentCard studentInfo={selectedId} state={handleClose}/>)
 }
 }
  

@@ -8,12 +8,18 @@ const Head = () => {
      );
 }
 
-const Nav = () => {
+const Nav = (props) => {
+
+    const handleInactive =()=>{
+
+    }
+
+
     return ( 
             <>
                 <nav>
                     <ul className="flex gap-12 pt-5 items-cneter justify-center font-semibold">
-                        <li>[ &ensp;  All &ensp;]</li>
+                        <li onClick={handleInactive}>[ &ensp;  All &ensp;]</li>
                         <li>[ &ensp; Active &ensp;]</li>
                         <li>[ &ensp; Not Active &ensp; ]</li>
                     </ul>
