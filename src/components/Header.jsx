@@ -10,17 +10,17 @@ const Head = () => {
      );
 }
 
-export const Nav = (props) => {
-    // console.log(props)
+export const Nav = ({all, active, inactive}) => {
+ 
     
 
     return ( 
             <>
                 <nav>
                     <ul className="flex gap-12 pt-5 items-cneter justify-center font-semibold">
-                        <li onClick={handleAllStudent}>[ &ensp;  All &ensp;]</li>
-                        <li onClick={handleActive}>[ &ensp; Active &ensp;]</li>
-                        <li onClick={handleInactive}>[ &ensp; Not Active &ensp; ]</li>
+                        <li onClick={all} className="hover:cursor-pointer">[ &ensp;  All &ensp;]</li>
+                        <li onClick={active} className="hover:cursor-pointer">[ &ensp; Active &ensp;]</li>
+                        <li onClick={inactive} className="hover:cursor-pointer">[ &ensp; Not Active &ensp; ]</li>
                     </ul>
                 
                 </nav>
@@ -29,12 +29,12 @@ export const Nav = (props) => {
 }
  
 
-const Header = ({statues}) => {
+const Header = ({all, active, inactive}) => {
    
     return ( 
         <>
             <Head />
-            <Nav students = {statues}/>
+            <Nav all = {all} active={active} inactive={inactive}/>
         </>
      );
 }

@@ -42,30 +42,26 @@ function App() {
 ];
 
 
-const [inactiveStudent, setInactiveStudent] = useState(null)
+const [inactiveStudent, setInactiveStudent] = useState(students)
 
     const handleInactive =()=>{
        
-        let inactive = props.students.filter(std => std.active === false)
-         console.log(inactive)
+        let inactive = students.filter(std => std.active === false)
        setInactiveStudent(inactive)
        
     }
 
      const handleActive =()=>{
        
-        let active = props.students.filter(std => std.active === true)
-        //  console.log(active)
-       setInactiveStudent(active)
+        let activeStudent = students.filter(std => std.active === true)
+       setInactiveStudent(activeStudent)
        
     }
 
 
     const handleAllStudent =()=>{
        
-        let active = props.students.filter(std => std.active === true ||  std.active === false)
-        //  console.log(active)
-       setInactiveStudent(active)
+       setInactiveStudent(students)
        
     }
 
@@ -73,8 +69,8 @@ const [inactiveStudent, setInactiveStudent] = useState(null)
   return (
     <>
      
-    <Header statues = {students}/>
-    <StudentList student={ students }/>
+    <Header all={handleAllStudent} active={handleActive} inactive={handleInactive}/>
+    <StudentList student={ inactiveStudent }/>
     
     </>
   )

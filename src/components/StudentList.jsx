@@ -5,34 +5,30 @@ import { useState } from "react";
 import StudentCard from "./StudentCard";
 
 
-const StudentList = (props) => {
-    // console.log(props)
-
+const StudentList = ({student}) => {
+    
     const [show, setShow] = useState(false)
     const [selectedId, setSelectedId] = useState(null)
 
      const handleClicked = id =>{
                     
-       let clickedStudent = props.student.find(std =>id === std.id)
+       let clickedStudent = student.find(std =>id === std.id)
        setSelectedId(clickedStudent)
 
-        setShow(true)
+        setShow(true) 
+    }
 
+        const handleClose = ()=>{
+           setShow(false)
                    
-                    
-                }
-
-                const handleClose = ()=>{
-                     setShow(false)
-                   
-                }
+    }
 if(!show){
 
     return ( 
         <>
            <div className="grid grid-cols-4 px-[5%] pt-20">
             {
-            props.student.map(student =>{
+            student.map(student =>{
 
                
 
@@ -52,9 +48,9 @@ if(!show){
                     <Button value='View Details' functionality={()=>handleClicked(student.id)}/>
                     </div>
 
-                )
+                 )
             })
-           } 
+           }  
            </div>
         </>
      );
