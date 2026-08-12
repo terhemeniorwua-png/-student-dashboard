@@ -69,7 +69,7 @@ const [displayStudents, setdisplayStudents] = useState(students)
 
      const handleSearch = e =>{
         let input = e.target.value.toLowerCase()
-        let studentSearched = students.filter(student =>{
+        let studentSearched = displayStudents.filter(student =>{
           let searchedStudent = student.name.toLowerCase()
           if(searchedStudent.includes(input)){
             return student
