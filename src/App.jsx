@@ -6,6 +6,7 @@ import Button from './components/Button'
 import Header from './components/Header'
 import StudentList from './components/StudentList'
 import StudentCard from './components/StudentCard'
+import FilterButton from './components/FilterButton'
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -66,10 +67,26 @@ const [inactiveStudent, setInactiveStudent] = useState(students)
     }
 
 
+     const handleSearch = e =>{
+        let input = e.target.value.toLowerCase()
+        let studentSearched = students.filter(student =>{
+          let searchedStudent = student.name.toLowerCase()
+          if(searchedStudent.includes(input)){
+            return student
+          }
+     })
+     setInactiveStudent(studentSearched)
+    }
+
+
+
   return (
     <>
      
     <Header all={handleAllStudent} active={handleActive} inactive={handleInactive}/>
+
+    <FilterButton functionality={(e)=>{handleSearch(e)}}/>
+
     <StudentList student={ inactiveStudent }/>
     
     </>

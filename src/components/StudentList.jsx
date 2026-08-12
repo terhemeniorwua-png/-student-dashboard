@@ -6,7 +6,7 @@ import StudentCard from "./StudentCard";
 
 
 const StudentList = ({student}) => {
-    
+
     const [show, setShow] = useState(false)
     const [selectedId, setSelectedId] = useState(null)
 
@@ -26,7 +26,7 @@ if(!show){
 
     return ( 
         <>
-           <div className="grid grid-cols-4 px-[5%] pt-20">
+           <div className="grid grid-cols-4 px-[5%] pt-5">
             {
             student.map(student =>{
 
