@@ -4,13 +4,13 @@ import Card from './components/StudentCard'
 import CardStore from './components/StudentList'
 import Button from './components/Button'
 import Header from './components/Header'
-import ClassList from './components/StudentList'
+import StudentList from './components/StudentList'
 import StudentCard from './components/StudentCard'
 
 function App() {
   // const [count, setCount] = useState(0);
 
-  const students = [
+  const students =  [
   {
     id: 1,
     name: "Philip Iorwua",
@@ -42,12 +42,39 @@ function App() {
 ];
 
 
+const [inactiveStudent, setInactiveStudent] = useState(null)
+
+    const handleInactive =()=>{
+       
+        let inactive = props.students.filter(std => std.active === false)
+         console.log(inactive)
+       setInactiveStudent(inactive)
+       
+    }
+
+     const handleActive =()=>{
+       
+        let active = props.students.filter(std => std.active === true)
+        //  console.log(active)
+       setInactiveStudent(active)
+       
+    }
+
+
+    const handleAllStudent =()=>{
+       
+        let active = props.students.filter(std => std.active === true ||  std.active === false)
+        //  console.log(active)
+       setInactiveStudent(active)
+       
+    }
+
 
   return (
     <>
      
     <Header statues = {students}/>
-    <ClassList student={ students }/>
+    <StudentList student={ students }/>
     
     </>
   )

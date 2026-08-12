@@ -5,18 +5,18 @@ import { useState } from "react";
 import StudentCard from "./StudentCard";
 
 
-const ClassList = (props) => {
+const StudentList = (props) => {
+    // console.log(props)
 
     const [show, setShow] = useState(false)
     const [selectedId, setSelectedId] = useState(null)
 
      const handleClicked = id =>{
                     
-       props.student.map(std =>{
-            id === std.id && setSelectedId(std)
-                    setShow(true)
-                    
-        })
+       let clickedStudent = props.student.find(std =>id === std.id)
+       setSelectedId(clickedStudent)
+
+        setShow(true)
 
                    
                     
@@ -66,4 +66,4 @@ else{
 }
 }
  
-export default ClassList;
+export default StudentList;

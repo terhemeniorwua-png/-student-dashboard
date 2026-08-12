@@ -1,3 +1,5 @@
+import { useState } from "react";
+import ClassList from "./StudentList";
 
 
 const Head = () => {
@@ -8,32 +10,31 @@ const Head = () => {
      );
 }
 
-const Nav = (props) => {
-
-    const handleInactive =()=>{
-
-    }
-
+export const Nav = (props) => {
+    // console.log(props)
+    
 
     return ( 
             <>
                 <nav>
                     <ul className="flex gap-12 pt-5 items-cneter justify-center font-semibold">
-                        <li onClick={handleInactive}>[ &ensp;  All &ensp;]</li>
-                        <li>[ &ensp; Active &ensp;]</li>
-                        <li>[ &ensp; Not Active &ensp; ]</li>
+                        <li onClick={handleAllStudent}>[ &ensp;  All &ensp;]</li>
+                        <li onClick={handleActive}>[ &ensp; Active &ensp;]</li>
+                        <li onClick={handleInactive}>[ &ensp; Not Active &ensp; ]</li>
                     </ul>
+                
                 </nav>
             </>
      );
 }
  
 
-const Header = () => {
+const Header = ({statues}) => {
+   
     return ( 
         <>
             <Head />
-            <Nav />
+            <Nav students = {statues}/>
         </>
      );
 }

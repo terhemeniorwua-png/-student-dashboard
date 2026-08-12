@@ -3,7 +3,7 @@ import Button from "./Button";
 
 
 const StudentCard = ({studentInfo, state}) => {
-    console.log(studentInfo)
+    // console.log(studentInfo)
         
     return ( 
         <>
@@ -29,5 +29,7 @@ const StudentCard = ({studentInfo, state}) => {
         </>
      );
 }
+
+
  
 export default StudentCard;
