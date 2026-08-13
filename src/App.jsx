@@ -74,9 +74,15 @@ const [displayStudents, setdisplayStudents] = useState(students)
           if(searchedStudent.includes(input)){
             return student
           }
+          else {
+            let message = 'No match';
+            setdisplayStudents(message)
+          }
      })
      setdisplayStudents(studentSearched)
     }
+
+
 
 
 
@@ -87,7 +93,7 @@ const [displayStudents, setdisplayStudents] = useState(students)
 
     <FilterButton functionality={(e)=>{handleSearch(e)}}/>
 
-    <StudentList student={ displayStudents }/>
+    <StudentList student={ displayStudents } setDisplay={ setdisplayStudents }/>
     
     </>
   )

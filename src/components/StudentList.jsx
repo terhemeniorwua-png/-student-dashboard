@@ -1,11 +1,10 @@
 import { FaCircle, FaUser } from "react-icons/fa";
-import { FaPlaneCircleCheck, FaPlaneCircleExclamation } from "react-icons/fa6";
 import Button from "./Button";
 import { useState } from "react";
 import StudentCard from "./StudentCard";
 
 
-const StudentList = ({student}) => {
+const StudentList = ({student, setDisplay}) => {
 
     const [show, setShow] = useState(false)
     const [selectedId, setSelectedId] = useState(null)
@@ -22,6 +21,18 @@ const StudentList = ({student}) => {
            setShow(false)
                    
     }
+
+
+    const handleDelete = (id)=>{
+        
+        let notDeletedStudent = student.filter(std =>id !== std.id)
+        console.log(notDeletedStudent)
+        setDisplay(notDeletedStudent)
+        setShow(false)
+    }
+
+
+
 if(!show){
 
     return ( 
@@ -45,8 +56,12 @@ if(!show){
                          {student.active === true? ' Active' : 'Inactive'}</p>
                     <p>{student.course}</p>
                     
-                    <Button value='View Details' functionality={()=>handleClicked(student.id)}/>
+                    <div className="flex justify-between">
+                        <Button value='View Details' functionality={()=>handleClicked(student.id)}/>
+                        <Button value='Delete' functionality={()=>handleDelete(student.id)}/>
                     </div>
+                    </div>
+
 
                  )
             })
